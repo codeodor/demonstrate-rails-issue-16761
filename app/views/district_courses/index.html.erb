@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing District Courses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Subject</th>
+      <th>District</th>
+      <th>State course</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @district_courses.each do |district_course| %>
+      <tr>
+        <td><%= district_course.name %></td>
+        <td><%= district_course.subject_id %></td>
+        <td><%= district_course.district_id %></td>
+        <td><%= district_course.state_course_id %></td>
+        <td><%= link_to 'Show', district_course %></td>
+        <td><%= link_to 'Edit', edit_district_course_path(district_course) %></td>
+        <td><%= link_to 'Destroy', district_course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New District course', new_district_course_path %>
